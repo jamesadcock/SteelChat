@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'teamsync';
-$db['default']['password'] = '';
+$db['default']['password'] = 'teamsync';
 $db['default']['database'] = 'TeamSync';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

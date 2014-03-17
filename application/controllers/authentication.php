@@ -35,7 +35,6 @@ class Authentication extends CI_Controller
         $firstName = $this->input->get('firstName');
         $lastName = $this->input->get('lastName');
         $emailAddress = $this->input->get('emailAddress');
-
         $this->load->model('authentication_model');
         $response = $this->authentication_model->insertUserAccount($username, $password, $firstName, $lastName, $emailAddress);
 

@@ -26,6 +26,27 @@ class App extends CI_Controller
 
     }
 
+    public function addGroup()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupName = $this->input->get('groupName');
+            $groupDescription = $this->input->get('groupDescription');
+
+            $this->load->model('app_model');
+            $this->app_model->insertGroup($groupName, $groupDescription);
+            echo 'Group Added';
+
+        }
+        else {
+            echo 'Access Denied';
+        }
+
+    }
+
     /**
      * This controller adds a new event and returns a string if successful
      */

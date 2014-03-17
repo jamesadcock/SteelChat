@@ -9,7 +9,8 @@ class Authentication_model extends CI_Model
      */
     public function authenticateUser($username, $password)
     {
-
+        $salt = $this->generateSalt($username);
+        $password = $this->generateHash($salt, $password);
         $response = array();
         if ($username == "" || $password == "d41d8cd98f00b204e9800998ecf8427e") //username or password empty
         {
@@ -30,6 +31,7 @@ class Authentication_model extends CI_Model
                 $response['id'] = $row->UserID;
                 session_start();
                 $_SESSION['username'] = $username;
+                $_SESSION['userId'] = $row->UserID;
 
             } else // else if user does not exist
             {
@@ -43,16 +45,20 @@ class Authentication_model extends CI_Model
 
     }
 
+
     /**
      *This function checks that the username and password have not already been registered
      * and if not then adds the user details to the database.  It returns a string that is
      * displayed to the user.
      */
-
     public function insertUserAccount($username, $password, $firstName, $lastName, $emailAddress)
     {
+         $salt = $this->generateSalt($username);
+         $password = $this->generateHash($salt, $password); //create hashed salted password
+
+
         $accountDetails = array('Username' => $username, 'Password' => $password,
-            'Firstname' => $firstName, 'Surname' => $lastName, 'EmailAddress' => $emailAddress);
+            'FirstName' => $firstName, 'Surname' => $lastName, 'EmailAddress' => $emailAddress);
 
         $selectUsername = $this->db->get_where('users', array('Username' => $username));
         $selectEmailAddress = $this->db->get_where('users', array('EmailAddress' => $emailAddress));
@@ -73,13 +79,20 @@ class Authentication_model extends CI_Model
         return $response;
     }
 
+     function test()
+    {
+        echo 'this is a test';
+    }
+
+
+    /*
+     * This function checks the provided authentication token and if it is valid it authenticates the user
+     */
     public function oneTimeAuthenticate($token)
     {
-
-        $response = array();
         if ($token == "" || $token == "") //token parameter not given or empty string
         {
-           return false;
+            return false;
 
         } else // if username and password fields complete
         {
@@ -91,7 +104,9 @@ class Authentication_model extends CI_Model
             {
                 $row = $query->row();
                 $username = $row->Username;
+                $userId = $row->UserID;
                 $_SESSION['username'] = $username;
+                $_SESSION['userId'] = $userId;
                 return true;
 
             } else // else if user does not exist
@@ -106,7 +121,6 @@ class Authentication_model extends CI_Model
     /*
      * This function generates a random token, appends it to a URI and sends it to the user
      */
-
     public function sendResetPasswordEmail($emailAddress)
     {
 
@@ -146,10 +160,19 @@ class Authentication_model extends CI_Model
 
     }
 
+
+    /*This function is used when the user has forgotten their password to change it
+     *to the provided value, the one time authentication field is set to an empty
+     * string.
+     */
     function changePassword($password)
     {
-        $username = $_SESSION['username'];
-        $data = array('Password' => $password,'Token' => '');
+        $username = $_SESSION['username']; // get username of authenticated user
+
+        $salt = generateSalt($username);
+        $password = generateHash($salt, $password);
+
+        $data = array('Password' => $password, 'Token' => '');
 
         $this->db->update('users', $data, array('Username' => $username));
 
@@ -162,10 +185,10 @@ class Authentication_model extends CI_Model
 
     }
 
+
     /**
      * This function return true if the current user is authenticated and false if they are not
      */
-
     public function isAuthenticated()
     {
         if (isset($_SESSION['username'])) {
@@ -174,4 +197,27 @@ class Authentication_model extends CI_Model
             return false;
         }
     }
+
+
+    /*
+   * Generate a unique based on the username
+   */
+    function generateSalt($username)
+    {
+        $salt = '$2a$13$';
+        $salt = $salt.md5(strtolower($username));
+        return $salt;
+    }
+
+
+    /*
+   * Create a hash of the provided password using the bcrypt algorithm
+   */
+    function generateHash($salt, $password)
+    {
+        $hash = crypt($password, $salt);
+        $hash = substr($hash, 29);
+        return $hash;
+    }
+
 }

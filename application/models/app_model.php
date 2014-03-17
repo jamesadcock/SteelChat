@@ -35,6 +35,17 @@ class App_model extends CI_Model
         return $response;
     }
 
+    public function insertGroup($groupName, $groupDescription)
+    {
+        $groupData = array('GroupName' => $groupName, 'GroupDescription' => $groupDescription);
+        $this->db->insert('groups', $groupData);
+        $groupId = $this->db->insert_id();
+
+        $groupUsersData = array('UserID' => $_SESSION['userId'], 'GroupID' => $groupId);
+        $this->db->insert('groupusers', $groupUsersData);
+
+    }
+
 
     public function insertEvent($roleName, $eventName, $eventDescription, $eventDate, $groupId)
     {
