@@ -52,5 +52,36 @@ class App_model extends CI_Model
 
     }
 
+    /*
+     * This function gets all the users from that match the provided search string and return them
+     * in an array
+     */
+    public function getUsers($searchString)
+    {
+
+        $this->db->select('FirstName,Surname,Username,UserID')
+            ->from('users')
+            ->like('Username', $searchString)
+            ->or_like('FirstName', $searchString)
+            ->or_like('Surname', $searchString);
+
+        $query = $this->db->get(); //return all user that firstname, surname or username partially match supplied
+                                   //search string
+        $response = array();
+        $i = 0;
+
+        foreach ($query->result() as $row) {
+            $response[$i] = array(
+                'firstName' => $row->FirstName,
+                'surname' => $row->Surname,
+                'username' => $row->Username,
+                'id' => $row->UserID
+            );
+            $i++;
+        }
+
+        return $response;
+    }
+
 }
 

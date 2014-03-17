@@ -40,8 +40,7 @@ class App extends CI_Controller
             $this->app_model->insertGroup($groupName, $groupDescription);
             echo 'Group Added';
 
-        }
-        else {
+        } else {
             echo 'Access Denied';
         }
 
@@ -51,7 +50,7 @@ class App extends CI_Controller
      * This controller adds a new event and returns a string if successful
      */
 
-    public function addEvent()
+    public function addEvent() // this function needs completing and testing
     {
         session_start();
         $this->load->model('authentication_model');
@@ -59,7 +58,7 @@ class App extends CI_Controller
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
 
-            $roleName = $this->inpunt->get('roleName');
+            $roleName = $this->input->get('roleName');
             $eventName = $this->input->get('eventName');
             $eventDescription = $this->input->get('eventDescription');
             $eventDate = $this->input->get('eventDate');
@@ -69,6 +68,29 @@ class App extends CI_Controller
             $response = $this->app_model->insertEvent(
                 $roleName, $eventName, $eventDescription, $eventDescription, $eventDate, $groupId);
 
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($response));
+        } else {
+            echo 'Access Denied';
+        }
+
+
+    }
+    /*
+     * This controller returns a json encoded array or users based on the supplied search string
+     */
+    public function getUsers()
+    {
+        $searchString = $this->input->get('search_string');
+        session_start();
+        $this->load->model('authentication_model');
+
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $this->load->model('app_model');
+            $response = $this->app_model->getUsers($searchString);
             $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode($response));

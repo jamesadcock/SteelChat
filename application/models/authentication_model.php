@@ -79,11 +79,6 @@ class Authentication_model extends CI_Model
         return $response;
     }
 
-     function test()
-    {
-        echo 'this is a test';
-    }
-
 
     /*
      * This function checks the provided authentication token and if it is valid it authenticates the user
