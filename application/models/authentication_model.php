@@ -209,8 +209,16 @@ class Authentication_model extends CI_Model
     }
 
 
-    public function isAuthorised()
+    public function isGroupMember($groupId)
     {
+        $query = $this->db->get_where(
+            'user_group', array('group_id' => $groupId, 'user_id' => $_SESSION['userId']));
+
+        if ($query->num_rows() > 0){  // if authenticated
+            return true;
+        }else{
+            return false;
+        }
 
     }
 

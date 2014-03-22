@@ -41,9 +41,6 @@ class App_model extends CI_Model
 
 
 
-
-
-
    /*
     * This function creates a group.  It first inserts data into the group table. It then creates the default
     * role for the group which is "creator" in the role table.  It then inserts a record into the user_group
@@ -89,7 +86,7 @@ class App_model extends CI_Model
         $this->db->insert('event', $eventData);
         $eventId = $this->db->insert_id();
 
-        //find to role ids using the provided role names and insert records into the event_role table
+        //find the role ids using the provided role names and insert records into the event_role table
         foreach($roleNames as $roleName)
         {
             $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId ));

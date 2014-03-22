@@ -65,14 +65,18 @@ class App extends CI_Controller
             $eventDescription = $this->input->get('event_description');
             $eventDate = $this->input->get('event_date');  //date should be in following format: 2013-08-05 18:19:03'
             $groupId = $this->input->get('group_id');
-            $roleName = $this->input->get('role_name');  // this needs to be parsed into an array
+            $roleName = array($this->input->get('role_name'));  // this needs to be parsed into an array
 
-            $this->load->model('app_model');
-            $this->app_model->insertEvent(
-                $eventName, $eventDescription, $eventDate, $groupId, $roleName);
+            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            {                                                                  //event
+                $this->load->model('app_model');
+                $this->app_model->insertEvent(
+                    $eventName, $eventDescription, $eventDate, $groupId, $roleName);
 
-            echo 'Group Added';
-
+                echo 'Group Added';
+            }else{
+                echo 'Access Denied';
+            }
 
         } else {
             echo 'Access Denied';
@@ -109,16 +113,6 @@ class App extends CI_Controller
     {
         $this->input->get('group_id');
         $this->input->get('user_id');
-    }
-
-
-    public function encrypt()
-    {
-       $this->load->model('authentication_model');
-       $encryptedString = $this->authentication_model->encrypt('test');
-       echo 'enc:'.$encryptedString.'<br>';
-       $decryptedString = $this->authentication_model->decrypt($encryptedString);
-       echo 'deenc:'.$decryptedString;
     }
 }
 
