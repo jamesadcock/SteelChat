@@ -32,9 +32,9 @@ class Authentication extends CI_Controller
 
         $username = $this->input->get('username');
         $password = $this->input->get('password');
-        $firstName = $this->input->get('firstName');
-        $lastName = $this->input->get('lastName');
-        $emailAddress = $this->input->get('emailAddress');
+        $firstName = $this->input->get('first_name');
+        $lastName = $this->input->get('last_name');
+        $emailAddress = $this->input->get('email_address');
         $this->load->model('authentication_model');
         $response = $this->authentication_model->insertUserAccount($username, $password, $firstName, $lastName, $emailAddress);
 
@@ -48,7 +48,7 @@ class Authentication extends CI_Controller
      */
     public function forgottenPassword()
     {
-        $emailAddress = $this->input->get('emailAddress');
+        $emailAddress = $this->input->get('email_address');
 
         $this->load->model('authentication_model');
 

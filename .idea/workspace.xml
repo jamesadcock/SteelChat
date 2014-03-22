@@ -35,7 +35,7 @@
       <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="59" selection-start="2569" selection-end="2569" vertical-scroll-proportion="-7.4166665" vertical-offset="1082" max-vertical-offset="1680">
+            <state line="38" column="44" selection-start="1067" selection-end="1077" vertical-scroll-proportion="33.708332" vertical-offset="1379" max-vertical-offset="1980">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="app_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="44" selection-start="2291" selection-end="2291" vertical-scroll-proportion="-15.291667" vertical-offset="713" max-vertical-offset="1395">
+            <state line="24" column="39" selection-start="746" selection-end="746" vertical-scroll-proportion="-11.666667" vertical-offset="80" max-vertical-offset="2235">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="authentication.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="58" selection-start="1204" selection-end="1204" vertical-scroll-proportion="-12.916667" vertical-offset="230" max-vertical-offset="1680">
+            <state line="50" column="50" selection-start="1640" selection-end="1640" vertical-scroll-proportion="8.708333" vertical-offset="959" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="authentication_model.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/authentication_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.4622144" vertical-offset="652" max-vertical-offset="3345">
+            <state line="23" column="84" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0035149385" vertical-offset="343" max-vertical-offset="4125">
               <folding />
             </state>
           </provider>
@@ -110,8 +110,8 @@
         <option value="$PROJECT_DIR$/application/views/reset_password.php" />
         <option value="$PROJECT_DIR$/application/views/homepage.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/controllers/authentication.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/application/controllers/authentication.php" />
         <option value="$PROJECT_DIR$/application/controllers/app.php" />
         <option value="$PROJECT_DIR$/application/models/app_model.php" />
         <option value="$PROJECT_DIR$/application/models/authentication_model.php" />
@@ -423,9 +423,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/form_success.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="42" selection-start="1662" selection-end="1662" vertical-scroll-proportion="-10.291667" vertical-offset="488" max-vertical-offset="1440">
+        <state line="150" column="0" selection-start="4763" selection-end="4763" vertical-scroll-proportion="-0.625" vertical-offset="2235" max-vertical-offset="3150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="50" selection-start="1640" selection-end="1640" vertical-scroll-proportion="8.708333" vertical-offset="959" max-vertical-offset="1680">
           <folding />
         </state>
       </provider>
@@ -437,37 +444,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/application/views/form_success.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="4763" selection-end="4763" vertical-scroll-proportion="-0.625" vertical-offset="2235" max-vertical-offset="3150">
+        <state line="49" column="42" selection-start="1662" selection-end="1662" vertical-scroll-proportion="-10.291667" vertical-offset="488" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="44" selection-start="2291" selection-end="2291" vertical-scroll-proportion="-15.291667" vertical-offset="713" max-vertical-offset="1395">
+        <state line="817" column="9" selection-start="24293" selection-end="24293" vertical-scroll-proportion="0.34622145" vertical-offset="12058" max-vertical-offset="16890">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="59" selection-start="2569" selection-end="2569" vertical-scroll-proportion="-7.4166665" vertical-offset="1082" max-vertical-offset="1680">
+        <state line="38" column="44" selection-start="1067" selection-end="1077" vertical-scroll-proportion="33.708332" vertical-offset="1379" max-vertical-offset="1980">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
+    <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="58" selection-start="1204" selection-end="1204" vertical-scroll-proportion="-12.916667" vertical-offset="230" max-vertical-offset="1680">
+        <state line="24" column="39" selection-start="746" selection-end="746" vertical-scroll-proportion="-11.666667" vertical-offset="80" max-vertical-offset="2235">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/authentication_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.4622144" vertical-offset="652" max-vertical-offset="3345">
+        <state line="23" column="84" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0035149385" vertical-offset="343" max-vertical-offset="4125">
           <folding />
         </state>
       </provider>

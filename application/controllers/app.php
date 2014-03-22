@@ -9,11 +9,12 @@ class App extends CI_Controller
     public function getGroups()
     {
         session_start();
+
         $this->load->model('authentication_model');
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $userId = $this->input->get('userId');
+            $userId = $this->input->get('user_id');
             $this->load->model('app_model');
             $response = $this->app_model->getGroups($userId);
 
@@ -26,6 +27,8 @@ class App extends CI_Controller
 
     }
 
+    //This controller adds a new group and returns a string if successful
+
     public function addGroup()
     {
         session_start();
@@ -33,8 +36,8 @@ class App extends CI_Controller
         $this->load->model('authentication_model');
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupName = $this->input->get('groupName');
-            $groupDescription = $this->input->get('groupDescription');
+            $groupName = $this->input->get('group_name');
+            $groupDescription = $this->input->get('group_description');
 
             $this->load->model('app_model');
             $this->app_model->insertGroup($groupName, $groupDescription);
@@ -50,40 +53,40 @@ class App extends CI_Controller
      * This controller adds a new event and returns a string if successful
      */
 
-    public function addEvent() // this function needs completing and testing
+    public function addEvent()
     {
         session_start();
+
         $this->load->model('authentication_model');
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-
-            $roleName = $this->input->get('roleName');
-            $eventName = $this->input->get('eventName');
-            $eventDescription = $this->input->get('eventDescription');
-            $eventDate = $this->input->get('eventDate');
-            $groupId = $this->input->get('groupId');
+            $eventName = $this->input->get('event_name');
+            $eventDescription = $this->input->get('event_description');
+            $eventDate = $this->input->get('event_date');  //date should be in following format: 2013-08-05 18:19:03'
+            $groupId = $this->input->get('group_id');
+            $roleName = $this->input->get('role_name');  // this needs to be parsed into an array
 
             $this->load->model('app_model');
-            $response = $this->app_model->insertEvent(
-                $roleName, $eventName, $eventDescription, $eventDescription, $eventDate, $groupId);
+            $this->app_model->insertEvent(
+                $eventName, $eventDescription, $eventDate, $groupId, $roleName);
 
-            $this->output
-                ->set_content_type('application/json')
-                ->set_output(json_encode($response));
+            echo 'Group Added';
+
+
         } else {
             echo 'Access Denied';
         }
-
-
     }
+
     /*
      * This controller returns a json encoded array or users based on the supplied search string
      */
     public function getUsers()
     {
-        $searchString = $this->input->get('search_string');
         session_start();
+
+        $searchString = $this->input->get('search_string');
         $this->load->model('authentication_model');
 
 
@@ -99,6 +102,23 @@ class App extends CI_Controller
         }
 
 
+    }
+
+
+    public function inviteUser()
+    {
+        $this->input->get('group_id');
+        $this->input->get('user_id');
+    }
+
+
+    public function encrypt()
+    {
+       $this->load->model('authentication_model');
+       $encryptedString = $this->authentication_model->encrypt('test');
+       echo 'enc:'.$encryptedString.'<br>';
+       $decryptedString = $this->authentication_model->decrypt($encryptedString);
+       echo 'deenc:'.$decryptedString;
     }
 }
 
