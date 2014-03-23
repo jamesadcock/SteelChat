@@ -97,8 +97,8 @@
                     <h2 class="section-heading">
                         <br>Secure</h2>
                     <p class="lead">All your data is encrypted as it is being sent too and from the TeamSync server.
-                    When we store your data on our servers we encrypt it with 256 bit encryption to enusure its
-                    safety and confidentiality</p>
+                    When we store your data on our servers we encrypt it with 256 bit encryption to ensure its
+                    safety and confidentiality.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="<?php echo base_url()?>resources/bootstrap/img/doge.png" alt="">

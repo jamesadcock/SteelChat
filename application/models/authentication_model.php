@@ -302,4 +302,29 @@ class Authentication_model extends CI_Model
 
     }
 
+
+   /*
+    * This function returns the users role for the supplied role id, if the user does not have a role for this
+    * group it returns false.
+    */
+    public function getUserRole($groupId)
+    {
+        $query = $this->db->get_where(
+            'user_group',array('user_id' => $_SESSION['userId'], 'group_id' => $groupId));
+
+        if ($query->num_rows() > 0) // if user does no have role
+        {
+            $row = $query->row();
+            $role = $row->role_id;
+            return $role;
+        }else // return role id
+        {
+            return false;
+        }
+
+
+
+
+    }
+
 }
