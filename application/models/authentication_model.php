@@ -8,32 +8,38 @@ class Authentication_model extends CI_Model
      *and if it does not it returns false. It also returns a string that is and is displayed to the user.
      */
 
-    protected $key;  // encryption key
-    protected $iv;   // initialisation vector
-    protected $cipher;  // encryption mode
-
-
+    protected $key; // encryption key
+    protected $iv; // initialisation vector
+    protected $cipher; // encryption mode
+    protected $encryptData; // this variable turns encryption on in the database this should ALWAYS be set to
+                            // true in production
     public function __construct()
     {
         $this->key = '2C2780CF42428724D45E9C63D84D8E63';
         $this->iv = '67E383E9EE06E2220EE1AF307A7AFCF5';
         $this->cipher = mcrypt_module_open(MCRYPT_RIJNDAEL_256, '', MCRYPT_MODE_CBC, '');
+        $this->encryptData = false;
     }
 
 
-   //This function check if username and password matches and return true if they do
+    //This function check if username and password matches and return true if they do
     public function authenticateUser($username, $password)
     {
-        $salt = $this->generateSalt($username);
-        $password = $this->generateHash($salt, $password);
-        $response = array();
-        if ($username == "" || $password == "d41d8cd98f00b204e9800998ecf8427e") //username or password empty
+        if ($username == "" || $password == "") //username or password empty
         {
             $response['logged'] = false;
             $response['message'] = 'Please enter username and password' . $username . $password;
-
-        } else // if username and password fields complete
+        }else // if username and password are complete
         {
+
+            //encrypt username for comparison
+            $username = $this->encrypt($username);
+
+            //hash password for comparison
+            $salt = $this->generateSalt($username);
+            $password = $this->generateHash($salt, $password);
+
+            $response = array();
 
             $query = $this->db->get_where('user', array('username' => $username, 'password' => $password));
 
@@ -42,10 +48,10 @@ class Authentication_model extends CI_Model
             {
                 $row = $query->row();
                 $response['logged'] = true;
-                $response['username'] = $row->username;
+                $response['username'] = $this->decrypt($row->username);
                 $response['id'] = $row->id;
                 session_start();
-                $_SESSION['username'] = $username;
+                $_SESSION['username'] = $this->decrypt($row->username);
                 $_SESSION['userId'] = $row->id;
 
             } else // else if user does not exist
@@ -68,8 +74,15 @@ class Authentication_model extends CI_Model
      */
     public function insertUserAccount($username, $password, $firstName, $lastName, $emailAddress)
     {
-         $salt = $this->generateSalt($username);
-         $password = $this->generateHash($salt, $password); //create hashed salted password
+        //encrypt user data
+        $username = $this->encrypt($username);
+        $firstName = $this->encrypt($firstName);
+        $lastName = $this->encrypt($lastName);
+        $emailAddress = $this->encrypt($emailAddress);
+
+        // hash password with bcrypt
+        $salt = $this->generateSalt($username);
+        $password = $this->generateHash($salt, $password); //create hashed salted password
 
 
         $accountDetails = array('username' => $username, 'password' => $password,
@@ -107,6 +120,7 @@ class Authentication_model extends CI_Model
         } else // if username and password fields complete
         {
 
+            $token = $this->encrypt($token);
             $query = $this->db->get_where('user', array('token' => $token));
 
 
@@ -143,30 +157,30 @@ class Authentication_model extends CI_Model
             $token .= $characters[rand(0, strlen($characters) - 1)];
         }
 
-        $data = array(
-            'token' => $token,
-        );
-
-
-        //send email
+        //send message
         $message = 'Hi,
             To reset your password please click the following link:
             team-sync.co.uk/authentication/resetpassword?token=' . $token . '
             Many Thanks
             The TeamSync Team';
 
-
-        $this->db->update('user', $data, array('email_address' => $emailAddress));
-
         $this->email->from('info@team-sync.co.uk', 'Customer Team');
         $this->email->to($emailAddress);
-
         $this->email->subject('Password Reset');
         $this->email->message($message);
-
         $this->email->send();
-
         // echo $this->email->print_debugger();
+
+        //encrypt
+        $token = $this->encrypt($token);
+        $emailAddress = $this->encrypt($emailAddress);
+
+        //persist to database
+        $data = array(
+            'token' => $token,
+        );
+
+        $this->db->update('user', $data, array('email_address' => $emailAddress));
 
     }
 
@@ -178,6 +192,8 @@ class Authentication_model extends CI_Model
     function changePassword($password)
     {
         $username = $_SESSION['username']; // get username of authenticated user
+
+        $username = $this->encrypt($username);  // encrypt username
 
         $salt = generateSalt($username);
         $password = generateHash($salt, $password);
@@ -214,9 +230,9 @@ class Authentication_model extends CI_Model
         $query = $this->db->get_where(
             'user_group', array('group_id' => $groupId, 'user_id' => $_SESSION['userId']));
 
-        if ($query->num_rows() > 0){  // if authenticated
+        if ($query->num_rows() > 0) { // if authenticated
             return true;
-        }else{
+        } else {
             return false;
         }
 
@@ -228,8 +244,8 @@ class Authentication_model extends CI_Model
    */
     function generateSalt($username)
     {
-        $salt = '$2a$13$';  //specifies bcryt algorithm with 13 rounds
-        $salt = $salt.md5(strtolower($username));
+        $salt = '$2a$13$'; //specifies bcryt algorithm with 13 rounds
+        $salt = $salt . md5(strtolower($username));
         return $salt;
     }
 
@@ -245,33 +261,44 @@ class Authentication_model extends CI_Model
     }
 
 
-   //this function encrypts the string that is passed to it using AES256 encryption
+    //this function encrypts the string that is passed to it using AES256 encryption
     public function encrypt($string)
     {
-        // Encrypt
-        if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1)
+        if($this->encryptData)  // if encryption is turned on
         {
-            $string = trim($string);  // trim string to be encrypted of any whitespace
-            $encrypted = mcrypt_generic($this->cipher, $string);
-            mcrypt_generic_deinit($this->cipher);
-            $encrypted =  base64_encode($encrypted);
+            // Encrypt
+            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
+                $string = trim($string); // trim string to be encrypted of any whitespace
+                $encrypted = mcrypt_generic($this->cipher, $string);
+                mcrypt_generic_deinit($this->cipher);
+                $encrypted = base64_encode($encrypted);
 
-            return $encrypted;
+                return $encrypted;
+            }
+        }
+        else{  //do not encrypt data
+            return $string;
         }
     }
 
     //this function decrypts the string that is passed to it using AES256 encryption
     public function decrypt($encryptedString)
     {
-        if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1)
+        if($this->encryptData) //encryption is turned on
         {
-            $encryptedString =  base64_decode($encryptedString);
-            $decrypted = mdecrypt_generic($this->cipher, $encryptedString);
-            mcrypt_generic_deinit($this->cipher);
-            $decrypted = rtrim($decrypted);  // trim decrypted string of null characters
+            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
+                $encryptedString = base64_decode($encryptedString);
+                $decrypted = mdecrypt_generic($this->cipher, $encryptedString);
+                mcrypt_generic_deinit($this->cipher);
+                $decrypted = rtrim($decrypted); // trim decrypted string of null characters
 
-            return $decrypted;
+                return $decrypted;
+            }
         }
+        else{  // do no decrypt data
+            return $encryptedString;
+        }
+
 
     }
 

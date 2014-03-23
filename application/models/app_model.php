@@ -49,7 +49,7 @@ class App_model extends CI_Model
     */
     public function insertGroup($groupName, $groupDescription)
     {
-        //encrypt users data
+        //encrypt group data
         $this->load->model('authentication_model');
         $groupName = $this->authentication_model->encrypt($groupName);
         $groupDescription = $this->authentication_model->encrypt($groupDescription);
@@ -77,6 +77,12 @@ class App_model extends CI_Model
 
     public function insertEvent($eventName, $eventDescription, $eventDate, $groupId, $roleNames)
     {
+
+        //encrypt event data
+        $this->load->model('authentication_model');
+        $eventName = $this->authentication_model->encrypt($eventName);
+        $eventDescription = $this->authentication_model->encrypt($eventDescription);
+        $eventDate = $this->authentication_model->encrypt($eventDate);
 
         //insert record into the events table
         $eventData = array(

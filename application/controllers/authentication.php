@@ -29,7 +29,6 @@ class Authentication extends CI_Controller
      */
     public function signUp()
     {
-
         $username = $this->input->get('username');
         $password = $this->input->get('password');
         $firstName = $this->input->get('first_name');
