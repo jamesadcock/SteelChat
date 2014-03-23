@@ -85,10 +85,10 @@ class App extends CI_Controller
 
 
     /**
-     * This controller adds a new notic and returns a string if successful
+     * This controller adds a new notice and returns a string if successful
      */
 
-    public function addENotice()
+    public function addNotice()
     {
         session_start();
 
@@ -107,7 +107,7 @@ class App extends CI_Controller
                 $this->app_model->insertNotice(
                     $noticeName, $noticeDescription, $groupId, $roleName);
 
-                echo 'Group Added';
+                echo 'Notice Added';
             }else{
                 echo 'Access Denied';
             }
@@ -143,7 +143,10 @@ class App extends CI_Controller
     }
 
 
-
+    /*
+     * This controller gets all the events for the supplied group that the current user is authorised to
+     * view
+     */
     public function getEvents()
     {
         session_start();
@@ -170,10 +173,44 @@ class App extends CI_Controller
         } else {
             echo 'Access Denied';
         }
-
-
-
     }
+
+
+
+    /*
+     * This controller gets all the notices for the supplied group that the current user is authorised to
+     * view
+     */
+    public function getNotices()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->get('group_id');
+
+            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            {                                                        //event
+                $this->load->model('app_model');
+                $response = $this->app_model->getNotices($groupId);
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+
+            }else
+            {
+                echo 'Access Denied';
+            }
+
+        } else {
+            echo 'Access Denied';
+        }
+    }
+
+
+
 
 
     public function inviteUser()

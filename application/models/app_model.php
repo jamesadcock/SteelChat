@@ -127,14 +127,14 @@ class App_model extends CI_Model
         $noticeDescription = $this->authentication_model->encrypt($noticeDescription);
 
         //insert record into the events table
-        $eventData = array(
+        $noticeData = array(
             'name' => $noticeName, 'description' => $noticeDescription,
              'group_id' => $groupId);
 
-        $this->db->insert('event', $eventData);
-        $eventId = $this->db->insert_id();
+        $this->db->insert('notice', $noticeData);
+        $noticeId = $this->db->insert_id();
 
-        //find the role ids using the provided role names and insert records into the event_role table
+        //find the role ids using the provided role names and insert records into the notice_role table
         foreach($roleNames as $roleName)
         {
             $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId ));
@@ -142,9 +142,9 @@ class App_model extends CI_Model
             if ($query->num_rows() > 0)
             {
                 $row = $query->row();
-                $eventRoleData = array(
-                    'event_id' => $eventId, 'role_id' => $row->id);
-                $this->db->insert('event_role', $eventRoleData);
+                $noticeRoleData = array(
+                    'notice_id' => $noticeId, 'role_id' => $row->id);
+                $this->db->insert('notice_role', $noticeRoleData);
             }
             else{
                 echo 'No data returned';
@@ -232,6 +232,59 @@ class App_model extends CI_Model
                     'name' => $name,
                     'description' => $description,
                     'date' => $date
+                );
+                $i++;
+            }
+
+            return $response;
+        }else{
+            $response = 'Access Denied';
+            return $response;
+        }
+
+    }
+
+
+
+    /*
+    * This function gets all the notices data that the authenticated user is authorised to view
+    */
+    public function getNotices($groupId)
+    {
+        $this->load->model('authentication_model');
+
+        // get the current users role for the supplied group id
+        $roleId = $this->authentication_model->getUserRole($groupId);  //returns false if no role id
+
+        if($roleId)  //user has a role for group
+        {
+
+            // run database query
+            $this->db->select('notice.id,notice.name,notice.description, notice.created');
+            $this->db->from('notice_role');
+            $this->db->join('notice', 'notice_role.notice_id = notice.id', 'inner');
+            $this->db->where('notice_role.role_id',$roleId);
+            $this->db->where('notice.group_id',$groupId );
+
+            $query = $this->db->get();
+
+            $response = array();
+            $i = 0;
+
+
+            // add the events to an array
+            foreach ($query->result() as $row)
+            {
+                // decrypt data
+                $name = $this->authentication_model->decrypt( $row->name);
+                $description = $this->authentication_model->decrypt( $row->description);
+                $created = $this->authentication_model->decrypt( $row->created);
+
+                $response[$i] = array(
+                    'id' => $row->id,
+                    'name' => $name,
+                    'description' => $description,
+                    'date' => $created
                 );
                 $i++;
             }
