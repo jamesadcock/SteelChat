@@ -36,7 +36,6 @@ class Authentication extends CI_Controller
         $emailAddress = $this->input->get('email_address');
         $this->load->model('authentication_model');
         $response = $this->authentication_model->insertUserAccount($username, $password, $firstName, $lastName, $emailAddress);
-
         echo $response;
 
 
@@ -47,7 +46,7 @@ class Authentication extends CI_Controller
      */
     public function forgottenPassword()
     {
-        $emailAddress = $this->input->get('email_address');
+        $emailAddress = $this->input->post('email_address');
 
         $this->load->model('authentication_model');
 
@@ -98,6 +97,35 @@ class Authentication extends CI_Controller
             $viewData['message'] = 'The link has either been used or is invalid';
             $this->load->view('form_success', $viewData);
         }
+
+    }
+
+
+
+    /**
+     * This controller updates the authenticated user's account details.
+     */
+    public function updateUserDetails()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+
+            $password = $this->input->post('password');
+            $firstName = $this->input->post('first_name');
+            $lastName = $this->input->post('last_name');
+            $emailAddress = $this->input->post('email_address');
+            $this->load->model('authentication_model');
+            $response = $this->authentication_model->updateUserAccount($password, $firstName, $lastName, $emailAddress);
+            echo $response;
+        }
+        else{
+            echo 'Access Denied';
+        }
+
 
     }
 

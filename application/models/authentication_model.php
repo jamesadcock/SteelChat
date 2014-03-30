@@ -12,7 +12,8 @@ class Authentication_model extends CI_Model
     protected $iv; // initialisation vector
     protected $cipher; // encryption mode
     protected $encryptData; // this variable turns encryption on in the database this should ALWAYS be set to
-                            // true in production
+    // true in production
+
     public function __construct()
     {
         $this->key = '2C2780CF42428724D45E9C63D84D8E63';
@@ -23,13 +24,14 @@ class Authentication_model extends CI_Model
 
 
     //This function check if username and password matches and return true if they do
+
     public function authenticateUser($username, $password)
     {
         if ($username == "" || $password == "") //username or password empty
         {
             $response['logged'] = false;
             $response['message'] = 'Please enter username and password' . $username . $password;
-        }else // if username and password are complete
+        } else // if username and password are complete
         {
 
             //encrypt username for comparison
@@ -66,6 +68,72 @@ class Authentication_model extends CI_Model
 
     }
 
+    public function encrypt($string)
+    {
+        if ($this->encryptData) // if encryption is turned on
+        {
+            // Encrypt
+            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
+                $string = trim($string); // trim string to be encrypted of any whitespace
+                $encrypted = mcrypt_generic($this->cipher, $string);
+                mcrypt_generic_deinit($this->cipher);
+                $encrypted = base64_encode($encrypted);
+
+                return $encrypted;
+            }
+        } else { //do not encrypt data
+            return $string;
+        }
+    }
+
+
+    /*
+     * This function checks the provided authentication token and if it is valid it authenticates the user
+     */
+
+    function generateSalt($username)
+    {
+        $salt = '$2a$13$'; //specifies bcryt algorithm with 13 rounds
+        $salt = $salt . md5(strtolower($username));
+        return $salt;
+    }
+
+
+    /*
+     * This function generates a random token, appends it to a URI and sends it to the user
+     */
+
+    function generateHash($salt, $password)
+    {
+        $hash = crypt($password, $salt);
+        $hash = substr($hash, 29);
+        return $hash;
+    }
+
+
+    /*This function is used when the user has forgotten their password to change it
+     *to the provided value, the one time authentication field is set to an empty
+     * string.
+     */
+
+    public function decrypt($encryptedString)
+    {
+        if ($this->encryptData) //encryption is turned on
+        {
+            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
+                $encryptedString = base64_decode($encryptedString);
+                $decrypted = mdecrypt_generic($this->cipher, $encryptedString);
+                mcrypt_generic_deinit($this->cipher);
+                $decrypted = rtrim($decrypted); // trim decrypted string of null characters
+
+                return $decrypted;
+            }
+        } else { // do no decrypt data
+            return $encryptedString;
+        }
+
+
+    }
 
     /**
      *This function checks that the username and password have not already been registered
@@ -109,8 +177,9 @@ class Authentication_model extends CI_Model
 
 
     /*
-     * This function checks the provided authentication token and if it is valid it authenticates the user
+     * returns true if the authenticated user is a member of the supplied group id
      */
+
     public function oneTimeAuthenticate($token)
     {
         if ($token == "" || $token == "") //token parameter not given or empty string
@@ -143,8 +212,9 @@ class Authentication_model extends CI_Model
 
 
     /*
-     * This function generates a random token, appends it to a URI and sends it to the user
-     */
+ * returns true if the authenticated user is an admin of the supplied group id
+ */
+
     public function sendResetPasswordEmail($emailAddress)
     {
 
@@ -185,15 +255,15 @@ class Authentication_model extends CI_Model
     }
 
 
-    /*This function is used when the user has forgotten their password to change it
-     *to the provided value, the one time authentication field is set to an empty
-     * string.
-     */
+    /*
+   * Generate a unique based on the username
+   */
+
     function changePassword($password)
     {
         $username = $_SESSION['username']; // get username of authenticated user
 
-        $username = $this->encrypt($username);  // encrypt username
+        $username = $this->encrypt($username); // encrypt username
 
         $salt = generateSalt($username);
         $password = generateHash($salt, $password);
@@ -212,6 +282,10 @@ class Authentication_model extends CI_Model
     }
 
 
+    /*
+   * Create a hash of the provided password using the bcrypt algorithm
+   */
+
     /**
      * This function return true if the current user is authenticated and false if they are not
      */
@@ -225,13 +299,40 @@ class Authentication_model extends CI_Model
     }
 
 
+    //this function encrypts the string that is passed to it using AES256 encryption
+
     public function isGroupMember($groupId)
     {
         $query = $this->db->get_where(
             'user_group', array('group_id' => $groupId, 'user_id' => $_SESSION['userId']));
 
-        if ($query->num_rows() > 0) { // if authenticated
+        if ($query->num_rows() > 0) { // if group member
             return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    //this function decrypts the string that is passed to it using AES256 encryption
+
+    public function isGroupAdmin($groupId)
+    {
+
+
+        $this->db->select('is_admin');
+        $this->db->from('user_group');
+        $this->db->join('role', 'user_group.role_id = role.id');
+        $this->db->where('user_group.group_id', $groupId);
+        $this->db->where('user_group.user_id', $_SESSION['userId']);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) { // group member
+
+            $row = $query->row();
+            return $row->is_admin;
+
         } else {
             return false;
         }
@@ -240,91 +341,78 @@ class Authentication_model extends CI_Model
 
 
     /*
-   * Generate a unique based on the username
-   */
-    function generateSalt($username)
-    {
-        $salt = '$2a$13$'; //specifies bcryt algorithm with 13 rounds
-        $salt = $salt . md5(strtolower($username));
-        return $salt;
-    }
+     * This function returns the users role for the supplied role id, if the user does not have a role for this
+     * group it returns false.
+     */
 
-
-    /*
-   * Create a hash of the provided password using the bcrypt algorithm
-   */
-    function generateHash($salt, $password)
-    {
-        $hash = crypt($password, $salt);
-        $hash = substr($hash, 29);
-        return $hash;
-    }
-
-
-    //this function encrypts the string that is passed to it using AES256 encryption
-    public function encrypt($string)
-    {
-        if($this->encryptData)  // if encryption is turned on
-        {
-            // Encrypt
-            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
-                $string = trim($string); // trim string to be encrypted of any whitespace
-                $encrypted = mcrypt_generic($this->cipher, $string);
-                mcrypt_generic_deinit($this->cipher);
-                $encrypted = base64_encode($encrypted);
-
-                return $encrypted;
-            }
-        }
-        else{  //do not encrypt data
-            return $string;
-        }
-    }
-
-    //this function decrypts the string that is passed to it using AES256 encryption
-    public function decrypt($encryptedString)
-    {
-        if($this->encryptData) //encryption is turned on
-        {
-            if (mcrypt_generic_init($this->cipher, $this->key, $this->iv) != -1) {
-                $encryptedString = base64_decode($encryptedString);
-                $decrypted = mdecrypt_generic($this->cipher, $encryptedString);
-                mcrypt_generic_deinit($this->cipher);
-                $decrypted = rtrim($decrypted); // trim decrypted string of null characters
-
-                return $decrypted;
-            }
-        }
-        else{  // do no decrypt data
-            return $encryptedString;
-        }
-
-
-    }
-
-
-   /*
-    * This function returns the users role for the supplied role id, if the user does not have a role for this
-    * group it returns false.
-    */
     public function getUserRole($groupId)
     {
         $query = $this->db->get_where(
-            'user_group',array('user_id' => $_SESSION['userId'], 'group_id' => $groupId));
+            'user_group', array('user_id' => $_SESSION['userId'], 'group_id' => $groupId));
 
         if ($query->num_rows() > 0) // if user does no have role
         {
             $row = $query->row();
             $role = $row->role_id;
             return $role;
-        }else // return role id
+        } else // return role id
         {
             return false;
         }
 
+    }
+
+    /**
+     *This method updates the authenticated user's user account details.  It also checks that the
+     * given email is not already in the system.
+     */
+    public function updateUserAccount($password, $firstName, $lastName, $emailAddress)
+    {
+        //encrypt user data
+        $firstName = $this->encrypt($firstName);
+        $lastName = $this->encrypt($lastName);
+        $emailAddress = $this->encrypt($emailAddress);
+
+        $selectEmailAddress = $this->db->get_where(
+            'user', array('email_address' => $emailAddress, 'id !=' => $_SESSION['userId']));
+
+        if ($selectEmailAddress->num_rows() > 0) { // if email address already exists in DB
+            $response = "Email address already exists";
+        } elseif ($password == '') { // update account excluding password
+
+            $accountDetails = array('first_name' => $firstName,
+                'last_name' => $lastName, 'email_address' => $emailAddress);
+
+            $this->db->where('id', $_SESSION['userId']);
+            $query = $this->db->update('user', $accountDetails);
+
+            if ($query) { // if query succeeds
+                $response = "User account updated";
+            } else { // if query fails
+                $response = "Update failed.";
+            }
+
+        } else { // update user account including password
+
+            // hash password with bcrypt
+            $salt = $this->generateSalt($_SESSION['username']);
+            $password = $this->generateHash($salt, $password); //create hashed salted password
 
 
+            $accountDetails = array('password' => $password,
+                'first_name' => $firstName, 'last_name' => $lastName, 'email_address' => $emailAddress);
 
+            $this->db->where('id', $_SESSION['userId']);
+            $query = $this->db->update('user', $accountDetails);
+
+            if ($query) { // if query succeeds
+                $response = "User account updated";
+            } else { // if query fails
+                $response = "Update failed.";
+            }
+
+        }
+        return $response;
     }
 
 }
