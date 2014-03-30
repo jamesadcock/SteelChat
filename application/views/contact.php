@@ -57,9 +57,7 @@
                 <br> <br>
 
                 <h5>Message</h5>
-                <textarea style="color:black;" name="message" rows="10" cols="50">
-                    <?php echo set_value('message');?>
-                </textarea>
+                <textarea style="color:black;" name="message" rows="10" cols="50"><?php echo set_value('message');?></textarea>
                 <br> <br>
                 <input type="submit" class="btn btn-default btn-lg" value="Submit" size="50"/>
 

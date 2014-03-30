@@ -39,16 +39,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="335" column="0" selection-start="9572" selection-end="9572" vertical-scroll-proportion="-18.958334" vertical-offset="4570" max-vertical-offset="5115">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/contact.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="20" selection-start="2214" selection-end="2214" vertical-scroll-proportion="-14.541667" vertical-offset="551" max-vertical-offset="1680">
+            <state line="59" column="82" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.7711864" vertical-offset="521" max-vertical-offset="1650">
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1396215148622" expanded="true" signature="2584:3169" placeholder="..." />
-                <marker date="1396215148622" expanded="true" signature="2584:3169" placeholder="..." />
+                <marker date="1396219502219" expanded="true" signature="2546:3131" placeholder="..." />
+                <marker date="1396219502219" expanded="true" signature="2546:3131" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -72,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="site.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="7" selection-start="883" selection-end="883" vertical-scroll-proportion="0.5752577" vertical-offset="126" max-vertical-offset="735">
+            <state line="27" column="7" selection-start="883" selection-end="883" vertical-scroll-proportion="-11.625" vertical-offset="126" max-vertical-offset="735">
               <folding />
             </state>
           </provider>
@@ -102,7 +111,7 @@
       <file leaf-file-name="authentication.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="9" selection-start="2575" selection-end="3709" vertical-scroll-proportion="-17.791666" vertical-offset="1043" max-vertical-offset="2085">
+            <state line="103" column="0" selection-start="3719" selection-end="3719" vertical-scroll-proportion="0.33333334" vertical-offset="1553" max-vertical-offset="2085">
               <folding />
             </state>
           </provider>
@@ -146,8 +155,8 @@
         <option value="$PROJECT_DIR$/application/views/reset_password.php" />
         <option value="$PROJECT_DIR$/application/views/form_success.php" />
         <option value="$PROJECT_DIR$/application/views/homepage.php" />
-        <option value="$PROJECT_DIR$/application/views/contact.php" />
         <option value="$PROJECT_DIR$/application/controllers/site.php" />
+        <option value="$PROJECT_DIR$/application/views/contact.php" />
       </list>
     </option>
   </component>
@@ -667,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="327" column="23" selection-start="9558" selection-end="9558" vertical-scroll-proportion="-17.083334" vertical-offset="4495" max-vertical-offset="5115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="20" selection-start="2439" selection-end="2486" vertical-scroll-proportion="-4.0416665" vertical-offset="1118" max-vertical-offset="1590">
@@ -684,13 +686,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="1575" selection-end="1575" vertical-scroll-proportion="-5.66" vertical-offset="362" max-vertical-offset="2880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="9" selection-start="2575" selection-end="3709" vertical-scroll-proportion="-17.791666" vertical-offset="1043" max-vertical-offset="2085">
           <folding />
         </state>
       </provider>
@@ -716,23 +711,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="7" selection-start="883" selection-end="883" vertical-scroll-proportion="-11.625" vertical-offset="126" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="335" column="0" selection-start="9572" selection-end="9572" vertical-scroll-proportion="-18.958334" vertical-offset="4570" max-vertical-offset="5115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="0" selection-start="3719" selection-end="3719" vertical-scroll-proportion="0.33333334" vertical-offset="1553" max-vertical-offset="2085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="20" selection-start="2214" selection-end="2214" vertical-scroll-proportion="-14.541667" vertical-offset="551" max-vertical-offset="1680">
+        <state line="59" column="82" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.7711864" vertical-offset="521" max-vertical-offset="1650">
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1396215148622" expanded="true" signature="2584:3169" placeholder="..." />
-            <marker date="1396215148622" expanded="true" signature="2584:3169" placeholder="..." />
+            <marker date="1396219502219" expanded="true" signature="2546:3131" placeholder="..." />
+            <marker date="1396219502219" expanded="true" signature="2546:3131" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="7" selection-start="883" selection-end="883" vertical-scroll-proportion="0.5752577" vertical-offset="126" max-vertical-offset="735">
-          <folding />
         </state>
       </provider>
     </entry>
