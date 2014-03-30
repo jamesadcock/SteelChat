@@ -35,7 +35,7 @@ class App extends CI_Controller
         $this->load->model('authentication_model');
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupName = $this->input->get('group_name');
+            $groupName = $this->input->post('group_name');
             $groupDescription = $this->input->get('group_description');
 
             $this->load->model('app_model');
@@ -157,7 +157,7 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $searchString = $this->input->get('search_string');
+            $searchString = $this->input->post('search_string');
 
             $this->load->model('app_model');
             $response = $this->app_model->searchGroups($searchString);
@@ -253,8 +253,8 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupId = $this->input->get('group_id');
-            $userId = $this->input->get('user_id');
+            $groupId = $this->input->post('group_id');
+            $userId = $this->input->post('user_id');
 
             if($this->authentication_model->isGroupAdmin($groupId)) //check if user has permission to add
             {                                                        //event
@@ -308,8 +308,8 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()){ // check if current user is authenticated
 
-            $groupId = $this->input->get('group_id');
-            $decision = $this->input->get('decision');
+            $groupId = $this->input->post('group_id');
+            $decision = $this->input->post('decision');
 
             $this->load->model('app_model');
 

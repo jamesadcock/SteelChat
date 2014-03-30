@@ -11,8 +11,8 @@ class Authentication extends CI_Controller
 
     public function signIn()
     {
-        $username = $this->input->get('username');
-        $password = $this->input->get('password');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
 
         $this->load->model('authentication_model');
         $response = $this->authentication_model->authenticateUser($username, $password);
@@ -29,11 +29,11 @@ class Authentication extends CI_Controller
      */
     public function signUp()
     {
-        $username = $this->input->get('username');
-        $password = $this->input->get('password');
-        $firstName = $this->input->get('first_name');
-        $lastName = $this->input->get('last_name');
-        $emailAddress = $this->input->get('email_address');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $firstName = $this->input->post('first_name');
+        $lastName = $this->input->post('last_name');
+        $emailAddress = $this->input->post('email_address');
         $this->load->model('authentication_model');
         $response = $this->authentication_model->insertUserAccount($username, $password, $firstName, $lastName, $emailAddress);
         echo $response;
