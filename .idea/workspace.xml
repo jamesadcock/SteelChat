@@ -82,7 +82,7 @@
       <file leaf-file-name="homepage.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="10" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9328859" vertical-offset="363" max-vertical-offset="3195">
+            <state line="51" column="10" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.8322148" vertical-offset="393" max-vertical-offset="3180">
               <folding>
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -730,7 +730,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="10" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9328859" vertical-offset="363" max-vertical-offset="3195">
+        <state line="51" column="10" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.8322148" vertical-offset="393" max-vertical-offset="3180">
           <folding>
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />

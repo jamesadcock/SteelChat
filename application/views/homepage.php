@@ -23,7 +23,7 @@
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    < <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -32,9 +32,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <p class="navbar-brand">TeamSync</p>
+                <a class="navbar-brand" href="http://startbootstrap.com">Start Bootstrap</a>
             </div>
-
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
