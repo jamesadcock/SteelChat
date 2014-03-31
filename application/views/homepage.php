@@ -29,25 +29,11 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
-
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <p class="navbar-brand">TeamSync</p>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="<?php echo base_url() ?>">Home</a>
-                    </li>
-                    <li><a href="<?php echo base_url()?>site/contact">Contact</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-
         </div>
         <!-- /.container -->
     </nav>
@@ -83,6 +69,7 @@
 
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
+                    <hr style="color:white;" class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Download the Android Beta preview version for free today</h2>
                     <p class="lead">Team sync is 100% free. Create as many groups as you like.  There is no limit on
@@ -105,6 +92,7 @@
 
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr style="background-color:#FFFFFF;" class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">
                         <br>Secure</h2>
@@ -129,6 +117,7 @@
 
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
+                    <hr style="background-color:#FFFFFF;" class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">
                         Coming Soon</h2>
