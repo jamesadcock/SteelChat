@@ -69,7 +69,6 @@
 
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Download the Android Beta preview version for free today</h2>
                     <p class="lead">Team sync is 100% free. Create as many groups as you like.  There is no limit on
@@ -92,7 +91,6 @@
 
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">
                         <br>Secure</h2>
@@ -117,7 +115,6 @@
 
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">
                         Coming Soon</h2>
