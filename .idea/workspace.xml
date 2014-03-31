@@ -33,9 +33,11 @@
       <file leaf-file-name="contact.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/contact.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="57" selection-start="2492" selection-end="2512" vertical-scroll-proportion="-16.0" vertical-offset="651" max-vertical-offset="1860">
+            <state line="40" column="1" selection-start="1530" selection-end="2054" vertical-scroll-proportion="-7.7916665" vertical-offset="413" max-vertical-offset="1950">
               <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +82,7 @@
       <file leaf-file-name="homepage.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="14" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.60402685" vertical-offset="270" max-vertical-offset="2880">
+            <state line="52" column="10" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9328859" vertical-offset="363" max-vertical-offset="3195">
               <folding>
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -717,16 +719,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="57" selection-start="2492" selection-end="2512" vertical-scroll-proportion="-16.0" vertical-offset="651" max-vertical-offset="1860">
+        <state line="40" column="1" selection-start="1530" selection-end="2054" vertical-scroll-proportion="-7.7916665" vertical-offset="413" max-vertical-offset="1950">
           <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="14" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.60402685" vertical-offset="270" max-vertical-offset="2880">
+        <state line="52" column="10" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9328859" vertical-offset="363" max-vertical-offset="3195">
           <folding>
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />

@@ -22,6 +22,8 @@
 
 </head>
 
+
+
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -39,18 +41,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo base_url() ?>">Home</a>
+                <li><a href="#about">About</a>
                 </li>
-                <li><a href="<?php echo base_url()?>site/contact">Contact</a>
+                <li><a href="#services">Services</a>
                 </li>
-
+                <li><a href="#contact">Contact</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-
     </div>
     <!-- /.container -->
 </nav>
+
+    </div>
+    <!-- /.container -->
+
 
 <div class="intro-header">
 
