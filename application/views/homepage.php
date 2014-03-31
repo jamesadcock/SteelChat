@@ -168,7 +168,7 @@
                         <li><a href="<?php echo base_url() ?>">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="<?php echo base_url()?>/site/contact">Contact</a>
+                        <li><a href="<?php echo base_url()?>site/contact">Contact</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; TeamSync 2013. All Rights Reserved</p>

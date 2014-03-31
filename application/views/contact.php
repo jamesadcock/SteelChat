@@ -18,6 +18,7 @@
 
     <!-- Add custom CSS here -->
     <link href="<?php echo base_url()?>resources/bootstrap/css/landing-page.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>resources/css/teamsync.css" rel="stylesheet">
 
 </head>
 
@@ -50,14 +51,14 @@
                 <?php echo form_open('site/contact'); ?>
 
                 <h5>Your name</h5>
-                <input style="color:black;" type="text" name="name"  value="<?php echo set_value('name');?>" size="50%"/>
+                <input class="field" style="color:black;" type="text" name="name"  value="<?php echo set_value('name');?>"/>
 
                 <h5>Email address</h5>
-                <input style="color:black;" type="text" name="email_address" value="<?php echo set_value('email_address');?> " size="50"/>
+                <input class="field" style="color:black;" type="text" name="email_address" value="<?php echo set_value('email_address');?> " />
                 <br> <br>
 
                 <h5>Message</h5>
-                <textarea style="color:black;" name="message" rows="10" cols="50"><?php echo set_value('message');?></textarea>
+                <textarea class="field" style="color:black;" name="message" rows="10" ><?php echo set_value('message');?></textarea>
                 <br> <br>
                 <input type="submit" class="btn btn-default btn-lg" value="Submit" size="50"/>
 

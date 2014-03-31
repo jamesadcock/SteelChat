@@ -50,10 +50,10 @@
                 <?php echo form_open('authentication/resetpassword'); ?>
 
                 <h5>Password</h5>
-                <input style="color:black;" type="password" name="password" value="" size="50%"/>
+                <input class="field" style="color:black;" type="password" name="password" value="" />
 
                 <h5>Confirm Password</h5>
-                <input style="color:black;" type="password" name="confirm_password" value="" size="50"/>
+                <input class="field" style="color:black;" type="password" name="confirm_password" value="" />
                 <br> <br>
                 <input type="submit" class="btn btn-default btn-lg" value="Submit" size="50"/>
 
