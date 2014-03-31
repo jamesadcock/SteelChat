@@ -33,12 +33,21 @@
       <file leaf-file-name="contact.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/contact.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="1" selection-start="1530" selection-end="2054" vertical-scroll-proportion="-7.7916665" vertical-offset="413" max-vertical-offset="1950">
+            <state line="40" column="2" selection-start="1531" selection-end="1981" vertical-scroll-proportion="-9.708333" vertical-offset="367" max-vertical-offset="1905">
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset_password.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="865" selection-end="1902" vertical-scroll-proportion="-3.75" vertical-offset="285" max-vertical-offset="1785">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,7 +91,7 @@
       <file leaf-file-name="homepage.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="10" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.8322148" vertical-offset="393" max-vertical-offset="3180">
+            <state line="47" column="38" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.9328859" vertical-offset="288" max-vertical-offset="3075">
               <folding>
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -235,10 +244,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -251,6 +256,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,7 +423,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -468,7 +479,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -522,7 +535,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -571,7 +586,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590" />
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/bootstrap/css/bootstrap.css">
@@ -705,11 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="46" selection-start="1318" selection-end="1318" vertical-scroll-proportion="-9.041667" vertical-offset="263" max-vertical-offset="1785" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/phrase.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="331" column="23" selection-start="6295" selection-end="6295" vertical-scroll-proportion="0.0" vertical-offset="4796" max-vertical-offset="6090">
@@ -717,9 +729,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="865" selection-end="1902" vertical-scroll-proportion="-3.75" vertical-offset="285" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="1" selection-start="1530" selection-end="2054" vertical-scroll-proportion="-7.7916665" vertical-offset="413" max-vertical-offset="1950">
+        <state line="40" column="2" selection-start="1531" selection-end="1981" vertical-scroll-proportion="-9.708333" vertical-offset="367" max-vertical-offset="1905">
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -730,7 +749,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="10" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.8322148" vertical-offset="393" max-vertical-offset="3180">
+        <state line="47" column="38" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.9328859" vertical-offset="288" max-vertical-offset="3075">
           <folding>
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
