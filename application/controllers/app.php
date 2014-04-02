@@ -36,7 +36,7 @@ class App extends CI_Controller
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
             $groupName = $this->input->post('group_name');
-            $groupDescription = $this->input->get('group_description');
+            $groupDescription = $this->input->post('group_description');
 
             $this->load->model('app_model');
             $this->app_model->insertGroup($groupName, $groupDescription);

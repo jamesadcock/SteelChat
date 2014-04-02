@@ -33,20 +33,7 @@
       <file leaf-file-name="contact.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/contact.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="82" selection-start="3879" selection-end="3879" vertical-scroll-proportion="-12.833333" vertical-offset="1432" max-vertical-offset="1905">
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reset_password.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="82" selection-start="3527" selection-end="3527" vertical-scroll-proportion="0.6828753" vertical-offset="1297" max-vertical-offset="1770">
+            <state line="116" column="82" selection-start="3879" selection-end="3879" vertical-scroll-proportion="0.0" vertical-offset="1432" max-vertical-offset="1905">
               <folding />
             </state>
           </provider>
@@ -61,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_model.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app_model.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="397" column="38" selection-start="12726" selection-end="12726" vertical-scroll-proportion="0.0" vertical-offset="5376" max-vertical-offset="6735">
+            <state line="75" column="0" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.9382716" vertical-offset="669" max-vertical-offset="6735">
               <folding />
             </state>
           </provider>
@@ -91,12 +78,8 @@
       <file leaf-file-name="homepage.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="4" selection-start="7172" selection-end="7345" vertical-scroll-proportion="-5.34" vertical-offset="2628" max-vertical-offset="3075">
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="193" column="4" selection-start="7172" selection-end="7345" vertical-scroll-proportion="0.0" vertical-offset="2628" max-vertical-offset="3075">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,7 +87,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="0" selection-start="4763" selection-end="4763" vertical-scroll-proportion="0.0" vertical-offset="2235" max-vertical-offset="3150">
+            <state line="150" column="0" selection-start="4763" selection-end="4763" vertical-scroll-proportion="0.0" vertical-offset="2250" max-vertical-offset="3150">
               <folding />
             </state>
           </provider>
@@ -113,7 +96,16 @@
       <file leaf-file-name="authentication.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="38" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="1613" max-vertical-offset="2085">
+            <state line="22" column="49" selection-start="786" selection-end="786" vertical-scroll-proportion="-3.7083333" vertical-offset="241" max-vertical-offset="2085">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="298" column="0" selection-start="8870" selection-end="8870" vertical-scroll-proportion="-8.6" vertical-offset="4040" max-vertical-offset="5115">
               <folding />
             </state>
           </provider>
@@ -154,12 +146,12 @@
         <option value="$PROJECT_DIR$/application/models/app_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/site.php" />
         <option value="$PROJECT_DIR$/application/controllers/authentication.php" />
-        <option value="$PROJECT_DIR$/application/controllers/app.php" />
         <option value="$PROJECT_DIR$/resources/css/teamsync.css" />
         <option value="$PROJECT_DIR$/application/views/form_success.php" />
         <option value="$PROJECT_DIR$/application/views/homepage.php" />
         <option value="$PROJECT_DIR$/application/views/contact.php" />
         <option value="$PROJECT_DIR$/application/views/reset_password.php" />
+        <option value="$PROJECT_DIR$/application/controllers/app.php" />
       </list>
     </option>
   </component>
@@ -295,6 +287,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teamsync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teamsync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -360,14 +370,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26748654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26748654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15797317" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -423,9 +433,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
-          <folding />
-        </state>
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -448,11 +456,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -479,9 +483,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
-          <folding />
-        </state>
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -504,11 +506,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -535,9 +533,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590">
-          <folding />
-        </state>
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
@@ -555,11 +551,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -586,9 +578,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
-          <folding />
-        </state>
+        <state line="81" column="27" selection-start="2446" selection-end="2477" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/bootstrap/css/bootstrap.css">
@@ -675,30 +665,11 @@
         <state line="4" column="1" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="150" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="397" column="38" selection-start="12726" selection-end="12726" vertical-scroll-proportion="0.0" vertical-offset="5376" max-vertical-offset="6735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/authentication_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="240" column="29" selection-start="7859" selection-end="8080" vertical-scroll-proportion="0.0" vertical-offset="3278" max-vertical-offset="6345">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="38" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="1613" max-vertical-offset="2085">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="328" column="0" selection-start="9565" selection-end="9565" vertical-scroll-proportion="-13.916667" vertical-offset="4586" max-vertical-offset="5115" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/css/teamsync.css">
@@ -724,36 +695,45 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/phrase.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="331" column="23" selection-start="6295" selection-end="6295" vertical-scroll-proportion="0.0" vertical-offset="4796" max-vertical-offset="6090">
-          <folding />
-        </state>
+        <state line="331" column="23" selection-start="6295" selection-end="6295" vertical-scroll-proportion="0.0" vertical-offset="4796" max-vertical-offset="6090" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="4" selection-start="7172" selection-end="7345" vertical-scroll-proportion="-5.34" vertical-offset="2628" max-vertical-offset="3075">
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="193" column="4" selection-start="7172" selection-end="7345" vertical-scroll-proportion="0.0" vertical-offset="2628" max-vertical-offset="3075">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="82" selection-start="3879" selection-end="3879" vertical-scroll-proportion="-12.833333" vertical-offset="1432" max-vertical-offset="1905">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="116" column="82" selection-start="3879" selection-end="3879" vertical-scroll-proportion="0.0" vertical-offset="1432" max-vertical-offset="1905">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="82" selection-start="3527" selection-end="3527" vertical-scroll-proportion="0.6828753" vertical-offset="1297" max-vertical-offset="1770">
+        <state line="108" column="82" selection-start="3527" selection-end="3527" vertical-scroll-proportion="-18.416666" vertical-offset="1178" max-vertical-offset="1770" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="49" selection-start="786" selection-end="786" vertical-scroll-proportion="-3.7083333" vertical-offset="241" max-vertical-offset="2085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="298" column="0" selection-start="8870" selection-end="8870" vertical-scroll-proportion="-8.6" vertical-offset="4040" max-vertical-offset="5115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/app_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="0" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.9382716" vertical-offset="669" max-vertical-offset="6735">
           <folding />
         </state>
       </provider>
