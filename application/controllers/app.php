@@ -62,19 +62,19 @@ class App extends CI_Controller
         {
             $eventName = $this->input->post('event_name');
             $eventDescription = $this->input->post('event_description');
-            $eventDate = $this->input->post('event_date');  //date should be in following format: 2013-08-05 18:19:03'
+            $eventDate = $this->input->post('event_date'); //date should be in following format: 2013-08-05 18:19:03'
             $groupId = $this->input->post('group_id');
-            $roleName = array($this->input->post('role_name'));  // this needs to be parsed into an array
+            $roleName = array($this->input->post('role_name')); // this needs to be parsed into an array
 
-            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
-            {                                                                  //event
+            if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            { //event
                 $this->load->model('app_model');
                 $this->app_model->insertEvent(
                     $eventName, $eventDescription, $eventDate, $groupId, $roleName);
 
                 echo 'Event Added';
-            }else{
-                echo 'Access Denied';
+            } else {
+                echo 'Not Group Member';
             }
 
         } else {
@@ -98,16 +98,16 @@ class App extends CI_Controller
             $noticeName = $this->input->post('notice_name');
             $noticeDescription = $this->input->post('notice_description');
             $groupId = $this->input->post('group_id');
-            $roleName = array($this->input->post('role_name'));  // this needs to be parsed into an array
+            $roleName = array($this->input->post('role_name')); // this needs to be parsed into an array
 
-            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
-            {                                                                  //event
+            if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            { //event
                 $this->load->model('app_model');
                 $this->app_model->insertNotice(
                     $noticeName, $noticeDescription, $groupId, $roleName);
 
                 echo 'Notice Added';
-            }else{
+            } else {
                 echo 'Access Denied';
             }
 
@@ -142,7 +142,6 @@ class App extends CI_Controller
 
 
     }
-
 
 
     /*
@@ -186,16 +185,15 @@ class App extends CI_Controller
         {
             $groupId = $this->input->post('group_id');
 
-            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
-            {                                                        //event
+            if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            { //event
                 $this->load->model('app_model');
                 $response = $this->app_model->getEvents($groupId);
                 $this->output
                     ->set_content_type('application/json')
                     ->set_output(json_encode($response));
 
-            }else
-            {
+            } else {
                 echo 'Access Denied';
             }
 
@@ -203,7 +201,6 @@ class App extends CI_Controller
             echo 'Access Denied';
         }
     }
-
 
 
     /*
@@ -220,16 +217,15 @@ class App extends CI_Controller
         {
             $groupId = $this->input->post('group_id');
 
-            if($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
-            {                                                        //event
+            if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
+            { //event
                 $this->load->model('app_model');
                 $response = $this->app_model->getNotices($groupId);
                 $this->output
                     ->set_content_type('application/json')
                     ->set_output(json_encode($response));
 
-            }else
-            {
+            } else {
                 echo 'Access Denied';
             }
 
@@ -237,8 +233,6 @@ class App extends CI_Controller
             echo 'Access Denied';
         }
     }
-
-
 
 
     /*
@@ -256,15 +250,14 @@ class App extends CI_Controller
             $groupId = $this->input->post('group_id');
             $userId = $this->input->post('user_id');
 
-            if($this->authentication_model->isGroupAdmin($groupId)) //check if user has permission to add
-            {                                                        //event
+            if ($this->authentication_model->isGroupAdmin($groupId)) //check if user has permission to add
+            { //event
                 $this->load->model('app_model');
                 $this->app_model->insertInviteUser($groupId, $userId);
 
                 echo 'user invited';
 
-            }else
-            {
+            } else {
                 echo 'Access Denied';
             }
 
@@ -284,7 +277,7 @@ class App extends CI_Controller
 
         $this->load->model('authentication_model');
 
-        if ($this->authentication_model->isAuthenticated()){ // check if current user is authenticated
+        if ($this->authentication_model->isAuthenticated()) { // check if current user is authenticated
 
             $this->load->model('app_model');
             $response = $this->app_model->getInvites();
@@ -299,6 +292,11 @@ class App extends CI_Controller
 
     }
 
+
+    /*
+    * This controller add a user to a group if they accept the invite and removes the entry from the user_invite
+     * table.  If they decline the invite it just deletes the entry from the user_invite tabbe
+    */
     public function processInvite()
     {
 
@@ -306,18 +304,17 @@ class App extends CI_Controller
 
         $this->load->model('authentication_model');
 
-        if ($this->authentication_model->isAuthenticated()){ // check if current user is authenticated
+        if ($this->authentication_model->isAuthenticated()) { // check if current user is authenticated
 
             $groupId = $this->input->post('group_id');
             $decision = $this->input->post('decision');
 
             $this->load->model('app_model');
 
-            if($decision == 'accept'){
+            if ($decision == 'accept') {
 
-                 $response = $this->app_model->joinGroup($groupId);
-            }
-            else {
+                $response = $this->app_model->joinGroup($groupId);
+            } else {
                 $response = $this->app_model->deleteInvite();
             }
 
@@ -328,6 +325,125 @@ class App extends CI_Controller
         echo $response;
 
     }
+
+
+    /*
+     *  This controller delete a role if the user is authorised and the role is no currently being
+     * user
+     */
+    public function deleteRole()
+    {
+
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->post('group_id');
+            $roleId = $this->input->post('role_id');
+
+            if ($this->authentication_model->isGroupAdmin($groupId)) //check if user is admin
+            {
+                $this->load->model('app_model');
+                $response = $this->app_model->deleteRole($groupId, $roleId);
+
+                echo $response;
+
+            } else {
+                echo 'Not Admin';
+            }
+
+        } else {
+            echo 'Access Denied';
+        }
+    }
+
+
+    /*
+     * This controller get all of the roles for the supplied group id
+     */
+    public function getGroupRoles()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->post('group_id');
+
+            if ($this->authentication_model->isGroupAdmin($groupId)) //check if user is admin
+            {
+                $this->load->model('app_model');
+                $response = $this->app_model->getGroupRoles($groupId);
+
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+            } else {
+                echo 'Not Admin';
+            }
+        } else {
+            echo 'Access Denied';
+        }
+
+    }
+
+
+    /*
+     * This controller adds a new role to the group
+     */
+    public function addRole()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->post('group_id');
+            $roleName = $this->input->post('role_name');
+
+            if ($this->authentication_model->isGroupAdmin($groupId)) //check if user is admin
+            {
+                $this->load->model('app_model');
+                $this->app_model->insertRole($groupId, $roleName);
+
+                echo 'role added';
+            } else {
+                echo 'Not Admin';
+            }
+        } else {
+            echo 'Access Denied';
+        }
+
+    }
+
+
+    public function joinGroup()
+    {
+
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->post('group_id');
+
+
+            $this->load->model('app_model');
+            $this->app_model->insertJoinRequest($groupId);
+
+            echo 'user invited';
+
+
+        } else {
+            echo 'Access Denied';
+        }
+    }
+
 
 }
 

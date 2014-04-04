@@ -3,7 +3,7 @@
 class Authentication_model extends CI_Model
 {
 
-    /**This function checks if the username field and password field have been filled in
+    /**This method checks if the username field and password field have been filled in
      * and if so check if so checks if they match and entry in the database.  If it does it returns true
      *and if it does not it returns false. It also returns a string that is and is displayed to the user.
      */
@@ -23,7 +23,7 @@ class Authentication_model extends CI_Model
     }
 
 
-    //This function check if username and password matches and return true if they do
+    //This method check if username and password matches and return true if they do
 
     public function authenticateUser($username, $password)
     {
@@ -88,7 +88,7 @@ class Authentication_model extends CI_Model
 
 
     /*
-     * This function checks the provided authentication token and if it is valid it authenticates the user
+     * This method checks the provided authentication token and if it is valid it authenticates the user
      */
 
     function generateSalt($username)
@@ -100,7 +100,7 @@ class Authentication_model extends CI_Model
 
 
     /*
-     * This function generates a random token, appends it to a URI and sends it to the user
+     * This method generates a random token, appends it to a URI and sends it to the user
      */
 
     function generateHash($salt, $password)
@@ -111,7 +111,7 @@ class Authentication_model extends CI_Model
     }
 
 
-    /*This function is used when the user has forgotten their password to change it
+    /*This method is used when the user has forgotten their password to change it
      *to the provided value, the one time authentication field is set to an empty
      * string.
      */
@@ -136,7 +136,7 @@ class Authentication_model extends CI_Model
     }
 
     /**
-     *This function checks that the username and password have not already been registered
+     *This method checks that the username and password have not already been registered
      * and if not then adds the user details to the database.  It returns a string that is
      * displayed to the user.
      */
@@ -287,7 +287,7 @@ class Authentication_model extends CI_Model
    */
 
     /**
-     * This function return true if the current user is authenticated and false if they are not
+     * This method return true if the current user is authenticated and false if they are not
      */
     public function isAuthenticated()
     {
@@ -299,7 +299,7 @@ class Authentication_model extends CI_Model
     }
 
 
-    //this function encrypts the string that is passed to it using AES256 encryption
+    //this method encrypts the string that is passed to it using AES256 encryption
 
     public function isGroupMember($groupId)
     {
@@ -314,7 +314,7 @@ class Authentication_model extends CI_Model
 
     }
 
-    //this function decrypts the string that is passed to it using AES256 encryption
+    //this method decrypts the string that is passed to it using AES256 encryption
 
     public function isGroupAdmin($groupId)
     {
@@ -341,7 +341,7 @@ class Authentication_model extends CI_Model
 
 
     /*
-     * This function returns the users role for the supplied role id, if the user does not have a role for this
+     * This method returns the users role for the supplied role id, if the user does not have a role for this
      * group it returns false.
      */
 

@@ -3,7 +3,7 @@
 class App_model extends CI_Model
 {
     /**
-     * This function check if supplied user is a member of any groups and if so
+     * This method check if supplied user is a member of any groups and if so
      * returns them in the response and if not returns a string "no groups
      */
     public function getGroups()
@@ -23,12 +23,12 @@ class App_model extends CI_Model
         if ($query->num_rows() > 0) // If user is a member of any group then add to response
         {
 
-           //get and decrypt group data
+            //get and decrypt group data
             foreach ($query->result() as $row) {
 
                 $response[$i] = array(
                     'groupId' => $row->id,
-                    'groupName' => $this->authentication_model->decrypt( $row->name),
+                    'groupName' => $this->authentication_model->decrypt($row->name),
                     'groupDescription' => $this->authentication_model->decrypt($row->description));
 
                 $i++;
@@ -41,13 +41,12 @@ class App_model extends CI_Model
     }
 
 
-
-   /*
-    * This function creates a group.  It first inserts data into the group table. It then creates the default
-    * role for the group which is "creator" in the role table.  It then inserts a record into the user_group
-    * table with the id of the newly created group, the id of the default role and the user_id of the
-    * authenticated user.
-    */
+    /*
+     * This method creates a group.  It first inserts data into the group table. It then creates the default
+     * role for the group which is "creator" in the role table.  It then inserts a record into the user_group
+     * table with the id of the newly created group, the id of the default role and the user_id of the
+     * authenticated user.
+     */
     public function insertGroup($groupName, $groupDescription)
     {
         //encrypt group data
@@ -76,7 +75,7 @@ class App_model extends CI_Model
     }
 
     /*
-     * This function inserts a new event and defines which users can see the event by inserting
+     * This method inserts a new event and defines which users can see the event by inserting
      * records into the event_role table
      */
 
@@ -92,24 +91,22 @@ class App_model extends CI_Model
         //insert record into the events table
         $eventData = array(
             'name' => $eventName, 'description' => $eventDescription,
-            'date' => $eventDate, 'group_id' => $groupId);
+            'date' => $eventDate, 'group_id' => $groupId,
+            'user_id' => $_SESSION['userId']);
 
         $this->db->insert('event', $eventData);
         $eventId = $this->db->insert_id();
 
         //find the role ids using the provided role names and insert records into the event_role table
-        foreach($roleNames as $roleName)
-        {
-            $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId ));
+        foreach ($roleNames as $roleName) {
+            $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId));
 
-            if ($query->num_rows() > 0)
-            {
+            if ($query->num_rows() > 0) {
                 $row = $query->row();
                 $eventRoleData = array(
                     'event_id' => $eventId, 'role_id' => $row->id);
                 $this->db->insert('event_role', $eventRoleData);
-            }
-            else{
+            } else {
                 echo 'No data returned';
             }
 
@@ -117,9 +114,8 @@ class App_model extends CI_Model
     }
 
 
-
     /*
- * This function inserts a new notice and defines which users can see the event by inserting
+ * This method inserts a new notice and defines which users can see the event by inserting
  * records into the event_role table
  */
 
@@ -131,27 +127,25 @@ class App_model extends CI_Model
         $noticeName = $this->authentication_model->encrypt($noticeName);
         $noticeDescription = $this->authentication_model->encrypt($noticeDescription);
 
-        //insert record into the events table
+        //insert record into the notice table
         $noticeData = array(
             'name' => $noticeName, 'description' => $noticeDescription,
-             'group_id' => $groupId);
+            'group_id' => $groupId,
+            'user_id' => $_SESSION['userId']);
 
         $this->db->insert('notice', $noticeData);
         $noticeId = $this->db->insert_id();
 
         //find the role ids using the provided role names and insert records into the notice_role table
-        foreach($roleNames as $roleName)
-        {
-            $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId ));
+        foreach ($roleNames as $roleName) {
+            $query = $this->db->get_where('role', array('name' => $roleName, 'group_id' => $groupId));
 
-            if ($query->num_rows() > 0)
-            {
+            if ($query->num_rows() > 0) {
                 $row = $query->row();
                 $noticeRoleData = array(
                     'notice_id' => $noticeId, 'role_id' => $row->id);
                 $this->db->insert('notice_role', $noticeRoleData);
-            }
-            else{
+            } else {
                 echo 'No data returned';
             }
 
@@ -159,15 +153,14 @@ class App_model extends CI_Model
     }
 
 
-
     /*
-     * This function gets all the users from that match the provided search string and return them
+     * This method gets all the users from that match the provided search string and return them
      * in an array
      */
     public function getUsers($searchString)
     {
 
-        $searchString = $this->authentication_model->encrypt( $searchString);
+        $searchString = $this->authentication_model->encrypt($searchString);
 
         $this->db->select('first_name,last_name,username,id')
             ->from('user')
@@ -176,16 +169,16 @@ class App_model extends CI_Model
             ->or_like('last_name', $searchString);
 
         $query = $this->db->get(); //return all user that first name, last name or username partially match supplied
-                                   //search string
+        //search string
         $response = array();
         $i = 0;
 
         foreach ($query->result() as $row) {
 
             // decrypt data
-            $firstName = $this->authentication_model->decrypt( $row->first_name);
-            $lastName = $this->authentication_model->decrypt( $row->last_name);
-            $username = $this->authentication_model->decrypt( $row->username);
+            $firstName = $this->authentication_model->decrypt($row->first_name);
+            $lastName = $this->authentication_model->decrypt($row->last_name);
+            $username = $this->authentication_model->decrypt($row->username);
 
             $response[$i] = array(
                 'firstName' => $firstName,
@@ -200,16 +193,13 @@ class App_model extends CI_Model
     }
 
 
-
-
-
     /*
-    * This function gets all the users from that match the provided search string and return them
+    * This method gets all the users from that match the provided search string and return them
     * in an array
     */
     public function searchGroups($searchString)
     {
-        $searchString = $this->authentication_model->encrypt( $searchString);
+        $searchString = $this->authentication_model->encrypt($searchString);
 
         $this->db->select('id,name')
             ->from('group')
@@ -222,7 +212,7 @@ class App_model extends CI_Model
         foreach ($query->result() as $row) {
 
             // decrypt data
-            $groupName = $this->authentication_model->decrypt( $row->name);
+            $groupName = $this->authentication_model->decrypt($row->name);
 
             $response[$i] = array(
                 'groupName' => $groupName,
@@ -235,53 +225,52 @@ class App_model extends CI_Model
     }
 
 
-
-
-
     /*
-     * This function gets all the events data that the authenticated user is authorised to view
+     * This method gets all the events data that the authenticated user is authorised to view
      */
     public function getEvents($groupId)
     {
         $this->load->model('authentication_model');
 
         // get the current users role for the supplied group id
-        $roleId = $this->authentication_model->getUserRole($groupId);  //returns false if no role id
+        $roleId = $this->authentication_model->getUserRole($groupId); //returns false if no role id
 
-        if($roleId){  //user has a role for group
+        if ($roleId) { //user has a role for group
 
             // run database query
-            $this->db->select('event.id,event.name,event.description, event.date');
+            $this->db->select('event.id,event.name,event.description, event.date, user.username');
             $this->db->from('event_role');
             $this->db->join('event', 'event_role.event_id = event.id', 'inner');
-            $this->db->where('event_role.role_id',$roleId);
-            $this->db->where('event.group_id',$groupId );
+            $this->db->join('user', 'user.id = event.user_id', 'inner');
+            $this->db->where('event_role.role_id', $roleId);
+            $this->db->where('event.group_id', $groupId);
 
             $query = $this->db->get();
+            echo $query->num_rows();
 
             $response = array();
             $i = 0;
 
-
             // add the events to an array
-            foreach ($query->result() as $row)
-            {
+            foreach ($query->result() as $row) {
                 // decrypt data
-                $name = $this->authentication_model->decrypt( $row->name);
-                $description = $this->authentication_model->decrypt( $row->description);
-                $date = $this->authentication_model->decrypt( $row->date);
+                $name = $this->authentication_model->decrypt($row->name);
+                $description = $this->authentication_model->decrypt($row->description);
+                $date = $this->authentication_model->decrypt($row->date);
+                $username = $this->authentication_model->decrypt($row->username);
 
                 $response[$i] = array(
                     'id' => $row->id,
                     'name' => $name,
                     'description' => $description,
-                    'date' => $date
+                    'date' => $date,
+                    'username' => $username
                 );
                 $i++;
             }
 
             return $response;
-        }else{
+        } else {
             $response = 'Access Denied';
             return $response;
         }
@@ -289,25 +278,25 @@ class App_model extends CI_Model
     }
 
 
-
     /*
-    * This function gets all the notices data that the authenticated user is authorised to view
+    * This method gets all the notices data that the authenticated user is authorised to view
     */
     public function getNotices($groupId)
     {
         $this->load->model('authentication_model');
 
         // get the current users role for the supplied group id
-        $roleId = $this->authentication_model->getUserRole($groupId);  //returns false if no role id
+        $roleId = $this->authentication_model->getUserRole($groupId); //returns false if no role id
 
-        if($roleId){  //user has a role for group
+        if ($roleId) { //user has a role for group
 
             // run database query
-            $this->db->select('notice.id,notice.name,notice.description, notice.created');
+            $this->db->select('notice.id,notice.name,notice.description, notice.created, user.username');
             $this->db->from('notice_role');
             $this->db->join('notice', 'notice_role.notice_id = notice.id', 'inner');
-            $this->db->where('notice_role.role_id',$roleId);
-            $this->db->where('notice.group_id',$groupId );
+            $this->db->join('user', 'user.id = notice.user_id', 'inner');
+            $this->db->where('notice_role.role_id', $roleId);
+            $this->db->where('notice.group_id', $groupId);
 
             $query = $this->db->get();
 
@@ -316,24 +305,25 @@ class App_model extends CI_Model
 
 
             // add the events to an array
-            foreach ($query->result() as $row)
-            {
+            foreach ($query->result() as $row) {
                 // decrypt data
-                $name = $this->authentication_model->decrypt( $row->name);
-                $description = $this->authentication_model->decrypt( $row->description);
-                $created = $this->authentication_model->decrypt( $row->created);
+                $name = $this->authentication_model->decrypt($row->name);
+                $description = $this->authentication_model->decrypt($row->description);
+                $created = $this->authentication_model->decrypt($row->created);
+                $username = $this->authentication_model->decrypt($row->username);
 
                 $response[$i] = array(
                     'id' => $row->id,
                     'name' => $name,
                     'description' => $description,
-                    'date' => $created
+                    'date' => $created,
+                    'username' => $username
                 );
                 $i++;
             }
 
             return $response;
-        }else{
+        } else {
             $response = 'Access Denied';
             return $response;
         }
@@ -341,39 +331,37 @@ class App_model extends CI_Model
     }
 
     /*
-     * This function inserts a row into the user_invite table, to indicate that the supplied user
+     * This method inserts a row into the user_invite table, to indicate that the supplied user
      * id has been invited to join the group.
      */
 
     public function  insertInviteUser($groupId, $userId)
     {
         $userInviteData = array('user_id' => $userId, 'group_id' => $groupId);
-        $this->db->insert('user_invite', $userInviteData );
+        $this->db->insert('user_invite', $userInviteData);
 
     }
 
 
-
-   /*
-    * This function returns the group name and id for all groups that the authenticated user has been invited to
-    */
+    /*
+     * This method returns the group name and id for all groups that the authenticated user has been invited to
+     */
     public function getInvites()
     {
         $this->db->select('group.id,group.name');
         $this->db->from('user_invite');
         $this->db->join('group', 'user_invite.group_id = group.id', 'inner');
-        $this->db->where('user_invite.user_id',$_SESSION['userId']);
+        $this->db->where('user_invite.user_id', $_SESSION['userId']);
 
         $query = $this->db->get();
 
-        if($query->num_rows() > 0){
+        if ($query->num_rows() > 0) {
             // add the events to an array
             $i = 0;
-            foreach ($query->result() as $row)
-            {
+            foreach ($query->result() as $row) {
 
                 // decrypt data
-                $name = $this->authentication_model->decrypt( $row->name);
+                $name = $this->authentication_model->decrypt($row->name);
 
                 $response[$i] = array(
                     'id' => $row->id,
@@ -381,9 +369,8 @@ class App_model extends CI_Model
                 );
                 $i++;
             }
-        }
-        else{
-            $response =  'No invites';
+        } else {
+            $response = 'No invites';
         }
 
         return $response;
@@ -391,17 +378,16 @@ class App_model extends CI_Model
     }
 
 
-   /*
-    * This method accepts a group id as an argument and adds the authenticated user to the group with the default
-    * role of member
-    */
+    /*
+     * This method accepts a group id as an argument and adds the authenticated user to the group with the default
+     * role of member
+     */
     public function joinGroup($groupId)
     {
         $userInviteData = array('user_id' => $_SESSION['userId'], 'group_id' => $groupId);
         $query = $this->db->get_where('user_invite', $userInviteData);
 
-        if($query->num_rows() > 0)
-        {
+        if ($query->num_rows() > 0) {
             // get member role for this group
             $roleData = array('group_id' => $groupId, 'name' => 'member');
             $query = $this->db->get_where('role', $roleData);
@@ -410,14 +396,13 @@ class App_model extends CI_Model
 
             // insert record into user_group table
             $userGroupData = array('user_id' => $_SESSION['userId'], 'group_id' => $groupId, 'role_id' => $roleId);
-            $this->db->insert('user_group',$userGroupData);
+            $this->db->insert('user_group', $userGroupData);
 
             //delete invite
             $this->deleteInvite($groupId);
 
             $response = 'user added to group';
-        }
-        else{
+        } else {
             $response = 'user has not been invited';
         }
 
@@ -426,9 +411,9 @@ class App_model extends CI_Model
     }
 
 
-   /*
-    * This method deletes an invite from the user_invite tale
-    */
+    /*
+     * This method deletes an invite from the user_invite tale
+     */
     public function deleteInvite($groupId)
     {
         $this->db->where('group_id', $groupId);
@@ -438,6 +423,88 @@ class App_model extends CI_Model
         $response = 'invite deleted';
         return $response;
     }
+
+
+    /*
+     * This method deletes role  from the user_invite table
+     */
+    public function deleteRole($groupId, $roleId)
+    {
+
+        $query = $this->db->get_where('user_group', array('role_id' => $roleId));
+
+        if ($query->num_rows() == 0) { //check if role is being used
+
+            $this->db->where('group_id', $groupId);
+            $this->db->where('id', $roleId);
+            $this->db->delete('role');
+
+            $response = 'role deleted';
+            return $response;
+        } else {
+
+
+            $response = 'unable to delete role';
+            return $response;
+
+        }
+    }
+
+
+    public function getGroupRoles($groupId)
+    {
+
+
+        $query = $this->db->get_where('role', array('group_id' => $groupId));
+
+        $response = array();
+        $i = 0;
+
+        if ($query->num_rows() > 0) // If user is a member of any group then add to response
+        {
+
+            //get and decrypt group data
+            foreach ($query->result() as $row) {
+
+                $response[$i] = array(
+                    'roleId' => $row->id,
+                    'roleName' => $row->name);
+
+                $i++;
+            }
+        } else { // else return no notices
+            $response = "no groups";
+        }
+
+        return $response;
+    }
+
+
+    /*
+     * Insert a new role into the role table
+     */
+    public function insertRole($groupId, $roleName)
+    {
+
+        //insert default role into DB
+        $roleData = array('name' => $roleName, 'is_admin' => 0, 'group_id' => $groupId);
+        $this->db->insert('role', $roleData);
+
+    }
+
+
+    /*
+     * Insert a new role into the join_request table
+     */
+    public function insertJoinRequest($groupId)
+    {
+
+        //insert default role into DB
+        $joinRequestData = array('group_id' => $groupId, 'user_id' => $_SESSION['userId']);
+        $this->db->insert('join_request', $joinRequestData);
+
+    }
+
 
 }
 
