@@ -247,7 +247,6 @@ class App_model extends CI_Model
             $this->db->where('event.group_id', $groupId);
 
             $query = $this->db->get();
-            echo $query->num_rows();
 
             $response = array();
             $i = 0;
