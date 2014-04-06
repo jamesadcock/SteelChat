@@ -35,8 +35,8 @@ class App extends CI_Controller
         $this->load->model('authentication_model');
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupName = $this->input->post('group_name');
-            $groupDescription = $this->input->post('group_description');
+            $groupName = $this->input->get('group_name');
+            $groupDescription = $this->input->get('group_description');
 
             $this->load->model('app_model');
             $this->app_model->insertGroup($groupName, $groupDescription);
@@ -60,11 +60,11 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $eventName = $this->input->post('event_name');
-            $eventDescription = $this->input->post('event_description');
-            $eventDate = $this->input->post('event_date'); //date should be in following format: 2013-08-05 18:19:03'
-            $groupId = $this->input->post('group_id');
-            $roleName = array($this->input->post('role_name')); // this needs to be parsed into an array
+            $eventName = $this->input->get('event_name');
+            $eventDescription = $this->input->get('event_description');
+            $eventDate = $this->input->get('event_date'); //date should be in following format: 2013-08-05 18:19:03'
+            $groupId = $this->input->get('group_id');
+            $roleName = array($this->input->get('role_name')); // this needs to be parsed into an array
 
             if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
             { //event
@@ -95,10 +95,10 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $noticeName = $this->input->post('notice_name');
-            $noticeDescription = $this->input->post('notice_description');
-            $groupId = $this->input->post('group_id');
-            $roleName = array($this->input->post('role_name')); // this needs to be parsed into an array
+            $noticeName = $this->input->get('notice_name');
+            $noticeDescription = $this->input->get('notice_description');
+            $groupId = $this->input->get('group_id');
+            $roleName = array($this->input->get('role_name')); // this needs to be parsed into an array
 
             if ($this->authentication_model->isGroupMember($groupId)) //check if user has permission to add
             { //event
@@ -108,7 +108,7 @@ class App extends CI_Controller
 
                 echo 'Notice Added';
             } else {
-                echo 'Access Denied';
+                echo 'Not Group member';
             }
 
         } else {
@@ -156,7 +156,7 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $searchString = $this->input->post('search_string');
+            $searchString = $this->input->get('search_string');
 
             $this->load->model('app_model');
             $response = $this->app_model->searchGroups($searchString);
@@ -340,8 +340,8 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupId = $this->input->post('group_id');
-            $roleId = $this->input->post('role_id');
+            $groupId = $this->input->get('group_id');
+            $roleId = $this->input->get('role_id');
 
             if ($this->authentication_model->isGroupAdmin($groupId)) //check if user is admin
             {
@@ -371,7 +371,7 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupId = $this->input->post('group_id');
+            $groupId = $this->input->get('group_id');
 
             if ($this->authentication_model->isGroupAdmin($groupId)) //check if user is admin
             {
@@ -430,7 +430,7 @@ class App extends CI_Controller
 
         if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
         {
-            $groupId = $this->input->post('group_id');
+            $groupId = $this->input->get('group_id');
 
 
             $this->load->model('app_model');

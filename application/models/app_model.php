@@ -88,6 +88,7 @@ class App_model extends CI_Model
         $eventDescription = $this->authentication_model->encrypt($eventDescription);
         $eventDate = $this->authentication_model->encrypt($eventDate);
 
+
         //insert record into the events table
         $eventData = array(
             'name' => $eventName, 'description' => $eventDescription,
