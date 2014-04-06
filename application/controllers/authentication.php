@@ -11,8 +11,8 @@ class Authentication extends CI_Controller
 
     public function signIn()
     {
-        $username = $this->input->get('username');
-        $password = $this->input->get('password');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
 
         $this->load->model('authentication_model');
         $response = $this->authentication_model->authenticateUser($username, $password);
