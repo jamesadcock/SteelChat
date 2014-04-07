@@ -506,5 +506,43 @@ class App_model extends CI_Model
     }
 
 
+    /*
+   * This method gets all the users for the provided group id and returns them
+   * in an array
+   */
+    public function getMembers($groupId)
+    {
+
+        $this->db->select('user.id,user.first_name,last_name,user.username, role.name');
+        $this->db->from('user_group');
+        $this->db->join('user', 'user_group.user_id = user.id');
+        $this->db->join('role', 'user_group.role_id = role.id');
+        $this->db->where('user_group.group_id', $groupId);
+
+        $query = $this->db->get(); //return all users in group
+        $response = array();
+        $i = 0;
+
+        foreach ($query->result() as $row) {
+
+            // decrypt data
+            $firstName = $this->authentication_model->decrypt($row->first_name);
+            $lastName = $this->authentication_model->decrypt($row->last_name);
+            $username = $this->authentication_model->decrypt($row->username);
+
+            $response[$i] = array(
+                'firstName' => $firstName,
+                'lastName' => $lastName,
+                'username' => $username,
+                'role' => $row->name,
+                'id' => $row->id
+            );
+            $i++;
+        }
+
+        return $response;
+    }
+
+
 }
 

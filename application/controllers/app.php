@@ -270,7 +270,6 @@ class App extends CI_Controller
      * This controller gets and returns the group name and id for all of the groups that the authenticated
      * user is member of.
      */
-
     public function getInvites()
     {
         session_start();
@@ -445,6 +444,36 @@ class App extends CI_Controller
     }
 
 
+    /*
+     * This controller gets all the notices for the supplied group that the current user is authorised to
+     * view
+     */
+    public function getMembers()
+    {
+        session_start();
+
+        $this->load->model('authentication_model');
+
+        if ($this->authentication_model->isAuthenticated()) // check if current user is authenticated
+        {
+            $groupId = $this->input->post('group_id');
+
+            if ($this->authentication_model->isGroupMember($groupId)) //check if user is group member
+            {
+                $this->load->model('app_model');
+                $response = $this->app_model->getMembers($groupId);
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+
+            } else {
+                echo 'No Group member';
+            }
+
+        } else {
+            echo 'Access Denied';
+        }
+    }
 }
 
 
