@@ -18,6 +18,7 @@
 
     <!-- Add custom CSS here -->
     <link href="<?php echo base_url()?>resources/bootstrap/css/landing-page.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>resources/css/teamsync.css" rel="stylesheet">
 
 </head>
 
@@ -66,7 +67,7 @@
                 <input class="field" style="color:black;" type="password" name="password" value="" />
 
                 <h5>Confirm Password</h5>
-                <input class="field" style="color:black;" type="password" name="confirm_password" value="" />
+                <input class="field"  style="color:black;" type="password" name="confirm_password" value="" />
                 <br> <br>
                 <input type="submit" class="btn btn-default btn-lg" value="Submit" size="50"/>
 

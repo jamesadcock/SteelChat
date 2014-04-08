@@ -46,7 +46,7 @@ class Authentication extends CI_Controller
      */
     public function forgottenPassword()
     {
-        $emailAddress = $this->input->post('email_address');
+        $emailAddress = $this->input->get('email_address');
 
         $this->load->model('authentication_model');
 
@@ -88,7 +88,6 @@ class Authentication extends CI_Controller
                 $password = $this->input->post('password');
                 $this->load->model('authentication_model');
                 $this->authentication_model->changePassword($password);
-
                 $viewData['message'] = 'Your password has now been reset, you can now login to the TeamSync app with
                     your new password';
                 $this->load->view('form_success', $viewData);

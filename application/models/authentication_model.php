@@ -265,8 +265,8 @@ class Authentication_model extends CI_Model
 
         $username = $this->encrypt($username); // encrypt username
 
-        $salt = generateSalt($username);
-        $password = generateHash($salt, $password);
+        $salt = $this->generateSalt($username);
+        $password = $this->generateHash($salt, $password);
 
         $data = array('password' => $password, 'token' => '');
 
