@@ -81,10 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authentication_model.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="authentication_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/authentication_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="69" selection-start="3276" selection-end="3276" vertical-scroll-proportion="0.4341564" vertical-offset="1214" max-vertical-offset="6345">
+            <state line="95" column="69" selection-start="3276" selection-end="3276" vertical-scroll-proportion="-8.791667" vertical-offset="1214" max-vertical-offset="6345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="166" column="22" selection-start="6474" selection-end="6474" vertical-scroll-proportion="0.8067416" vertical-offset="2131" max-vertical-offset="3075">
               <folding />
             </state>
           </provider>
@@ -115,22 +124,22 @@
         <option value="$PROJECT_DIR$/application/controllers/site.php" />
         <option value="$PROJECT_DIR$/resources/css/teamsync.css" />
         <option value="$PROJECT_DIR$/application/views/form_success.php" />
-        <option value="$PROJECT_DIR$/application/views/homepage.php" />
         <option value="$PROJECT_DIR$/application/views/contact.php" />
         <option value="$PROJECT_DIR$/application/controllers/app.php" />
         <option value="$PROJECT_DIR$/application/models/app_model.php" />
         <option value="$PROJECT_DIR$/application/views/reset_password.php" />
         <option value="$PROJECT_DIR$/application/controllers/authentication.php" />
         <option value="$PROJECT_DIR$/application/models/authentication_model.php" />
+        <option value="$PROJECT_DIR$/application/views/homepage.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1303" />
-    <option name="height" value="773" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -357,7 +366,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
+    <frame x="64" y="24" width="1303" height="745" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -368,7 +377,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26748654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15797317" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16485226" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -443,7 +452,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880" />
+        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -489,7 +500,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880" />
+        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -530,7 +543,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880" />
+        <state line="100" column="47" selection-start="3822" selection-end="3822" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="2880">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -654,11 +669,6 @@
         <state line="331" column="23" selection-start="6295" selection-end="6295" vertical-scroll-proportion="0.0" vertical-offset="4796" max-vertical-offset="6090" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="4" selection-start="7172" selection-end="7345" vertical-scroll-proportion="0.0" vertical-offset="2628" max-vertical-offset="3075" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/site.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="30" selection-start="905" selection-end="906" vertical-scroll-proportion="0.35420743" vertical-offset="224" max-vertical-offset="735" />
@@ -704,7 +714,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/authentication_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="69" selection-start="3276" selection-end="3276" vertical-scroll-proportion="0.4341564" vertical-offset="1214" max-vertical-offset="6345">
+        <state line="95" column="69" selection-start="3276" selection-end="3276" vertical-scroll-proportion="-8.791667" vertical-offset="1214" max-vertical-offset="6345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/homepage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="22" selection-start="6474" selection-end="6474" vertical-scroll-proportion="0.8067416" vertical-offset="2131" max-vertical-offset="3075">
           <folding />
         </state>
       </provider>

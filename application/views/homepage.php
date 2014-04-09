@@ -62,7 +62,7 @@
                         <h3>Secure Team Messaging</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li><a href="#" class="btn btn-default btn-lg"> <span class="network-name">Download</span></a>
+                            <li><a href="<?php echo base_url()?>resources/TeamSync.apk" class="btn btn-default btn-lg"> <span class="network-name">Download</span></a>
                             </li>
                         </ul>
 
@@ -161,7 +161,7 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
-                        <li><a href="#" class="btn btn-default btn-lg"> <span class="network-name">Download</span></a>
+                        <li><a href="<?php echo base_url()?>resources/TeamSync.apk" class="btn btn-default btn-lg"> <span class="network-name">Download</span></a>
                         </li>
                     </ul>
                 </div>
