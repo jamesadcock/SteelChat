@@ -46,7 +46,7 @@ class Authentication extends CI_Controller
      */
     public function forgottenPassword()
     {
-        $emailAddress = $this->input->get('email_address');
+        $emailAddress = $this->input->post('email_address');
 
         $this->load->model('authentication_model');
 

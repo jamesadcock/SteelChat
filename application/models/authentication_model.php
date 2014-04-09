@@ -19,7 +19,7 @@ class Authentication_model extends CI_Model
         $this->key = '2C2780CF42428724D45E9C63D84D8E63';
         $this->iv = '67E383E9EE06E2220EE1AF307A7AFCF5';
         $this->cipher = mcrypt_module_open(MCRYPT_RIJNDAEL_256, '', MCRYPT_MODE_CBC, '');
-        $this->encryptData = false;
+        $this->encryptData = true;
     }
 
 
